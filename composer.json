@@ -10,7 +10,7 @@
     "type": "library",
     "autoload":     {
         "psr-0": {
-            "Gmorel\\SpecGenStateWorkflowBundle": ""
+            "Gmorel\\SpecGenStateWorkflow": ""
         }
     },
     "require": {
