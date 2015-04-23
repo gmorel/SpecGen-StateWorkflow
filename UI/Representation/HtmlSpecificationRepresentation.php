@@ -1,8 +1,8 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\UI\Representation;
+namespace Gmorel\SpecGenStateWorkflow\UI\Representation;
 
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\Representation\SpecificationRepresentationInterface;
+use Gmorel\SpecGenStateWorkflow\Domain\Representation\SpecificationRepresentationInterface;
 
 /**
  * @author Guillaume MOREL <guillaume.morel@verylastroom.com>

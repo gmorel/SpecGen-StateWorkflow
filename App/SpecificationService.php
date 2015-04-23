@@ -1,12 +1,12 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\App;
+namespace Gmorel\SpecGenStateWorkflow\App;
 
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\App\Command\RenderWorkflowSpecificationFromWorkflowServiceCommand;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\Exception\WorkflowServiceNotFoundException;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\SpecificationRepresentationGeneratorInterface;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\SpecificationWriterInterface;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\WorkflowContainer;
+use Gmorel\SpecGenStateWorkflow\App\Command\RenderWorkflowSpecificationFromWorkflowServiceCommand;
+use Gmorel\SpecGenStateWorkflow\Domain\Exception\WorkflowServiceNotFoundException;
+use Gmorel\SpecGenStateWorkflow\Domain\SpecificationRepresentationGeneratorInterface;
+use Gmorel\SpecGenStateWorkflow\Domain\SpecificationWriterInterface;
+use Gmorel\SpecGenStateWorkflow\Domain\WorkflowContainer;
 
 /**
  * @author Guillaume MOREL <guillaume.morel@verylastroom.com>

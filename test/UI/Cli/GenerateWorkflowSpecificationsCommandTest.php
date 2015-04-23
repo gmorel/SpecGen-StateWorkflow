@@ -1,8 +1,8 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\Test\SpecificationGeneration\UI\Cli;
+namespace Gmorel\SpecGenStateWorkflow\Test\UI\Cli;
 
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\UI\Cli\GenerateWorkflowSpecificationsCommand;
+use Gmorel\SpecGenStateWorkflow\UI\Cli\GenerateWorkflowSpecificationsCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -24,15 +24,17 @@ class GenerateWorkflowSpecificationsCommandTest extends \PHPUnit_Framework_TestC
     }
 
     /**
-     * @return \Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\App\SpecificationService
+     * @return \Gmorel\SpecGenStateWorkflow\App\SpecificationService
      */
     private function mockSpecificationService()
     {
-        $mock = $this->getMockBuilder('Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\App\SpecificationService')
+        $mock = $this->getMockBuilder('Gmorel\SpecGenStateWorkflow\App\SpecificationService')
             ->disableOriginalConstructor()
             ->getMock();
         $mock->method('renderSpecification')
             ->willReturn(null);
+        $mock->method('getAvailableWorkflowIds')
+            ->willReturn(array('booking'));
 
         return $mock;
     }

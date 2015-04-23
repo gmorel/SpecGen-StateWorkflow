@@ -1,9 +1,9 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain;
+namespace Gmorel\SpecGenStateWorkflow\Domain;
 
 use Gmorel\StateWorkflowBundle\StateEngine\StateWorkflow;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\UI\Representation\HtmlSpecificationRepresentation;
+use Gmorel\SpecGenStateWorkflow\UI\Representation\HtmlSpecificationRepresentation;
 
 /**
  * @author Guillaume MOREL <guillaume.morel@verylastroom.com>

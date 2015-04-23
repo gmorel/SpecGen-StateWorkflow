@@ -1,8 +1,8 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain;
+namespace Gmorel\SpecGenStateWorkflow\Domain;
 
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\Representation\SpecificationRepresentationInterface;
+use Gmorel\SpecGenStateWorkflow\Domain\Representation\SpecificationRepresentationInterface;
 use SpecificationGeneration\Domain\Exception\UnableToWriteSpecificationException;
 
 /**

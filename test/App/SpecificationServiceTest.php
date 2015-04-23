@@ -1,17 +1,18 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\Test\SpecificationGeneration\App;
+namespace Gmorel\SpecGenStateWorkflow\Test\App;
 
 use BookingEngine\Domain\State\Implementation\StateCancelled;
 use BookingEngine\Domain\State\Implementation\StateIncomplete;
 use BookingEngine\Domain\State\Implementation\StatePaid;
 use BookingEngine\Domain\State\Implementation\StateToDelete;
 use BookingEngine\Domain\State\Implementation\StateWaitingPayment;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\App\Command\RenderWorkflowSpecificationFromWorkflowServiceCommand;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\WorkflowContainer;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Infra\CytoscapeSpecificationRepresentationGenerator;
+use Gmorel\SpecGenStateWorkflow\App\Command\RenderWorkflowSpecificationFromWorkflowServiceCommand;
+use Gmorel\SpecGenStateWorkflow\Domain\WorkflowContainer;
+use Gmorel\SpecGenStateWorkflow\Infra\CytoscapeSpecificationRepresentationGenerator;
+use Gmorel\SpecGenStateWorkflow\Infra\FileSystemSpecificationWriter;
 use Gmorel\StateWorkflowBundle\StateEngine\StateWorkflow;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\App\SpecificationService as SUT;
+use Gmorel\SpecGenStateWorkflow\App\SpecificationService as SUT;
 
 /**
  * @author Guillaume MOREL <github.com/gmorel>
@@ -31,22 +32,25 @@ class SpecificationServiceTest extends \PHPUnit_Framework_TestCase
         $workflowContainer = new WorkflowContainer();
         $workflowContainer->addWorkflow($stateWorkflow);
 
+        $specificationWriter = new FileSystemSpecificationWriter();
+
         $introspectedWorkflow = new SUT(
             $workflowContainer,
-            new CytoscapeSpecificationRepresentationGenerator()
+            new CytoscapeSpecificationRepresentationGenerator(),
+            $specificationWriter
         );
 
         $expected = '<!DOCTYPE html>
 <html>
     <head>
-        <link href="../../SpecificationGeneration/UI/Resource/style.css" rel="stylesheet" />
+        <link href="https://rawgit.com/gmorel/StateWorkflowBundle/develop/SpecificationGeneration/UI/Resource/style.css" rel="stylesheet" />
         <meta charset=utf-8 />
-        <titleBooking Workflow Specification</title>
+        <title>Booking Workflow Specification</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
-        <script src="../../SpecificationGeneration/UI/Resource/code.js"></script>
+        <script src="https://rawgit.com/gmorel/StateWorkflowBundle/develop/SpecificationGeneration/UI/Resource/code.js"></script>
         <script type="application/javascript">
-            var dataWorkflow = {"nodes":[{"data":{"id":"incomplete","name":"Incomplet","weight":50,"faveColor":"#6FB1FC","faveShape":"triangle"}},{"data":{"id":"waiting_for_payment","name":"En attente de paiement","weight":50,"faveColor":"#6FB1FC","faveShape":"rectangle"}},{"data":{"id":"paid","name":"Pay\u00e9","weight":50,"faveColor":"#6FB1FC","faveShape":"ellipse"}},{"data":{"id":"cancelled","name":"Annul\u00e9","weight":50,"faveColor":"#6FB1FC","faveShape":"rectangle"}},{"data":{"id":"to_delete","name":"A supprimer","weight":50,"faveColor":"#6FB1FC","faveShape":"ellipse"}}],"edges":[{"data":{"source":"incomplete","target":"waiting_for_payment","faveColor":"#6FB1FC","strength":20}},{"data":{"source":"incomplete","target":"paid","faveColor":"#6FB1FC","strength":20}},{"data":{"source":"waiting_for_payment","target":"paid","faveColor":"#6FB1FC","strength":20}},{"data":{"source":"waiting_for_payment","target":"cancelled","faveColor":"#6FB1FC","strength":20}},{"data":{"source":"cancelled","target":"to_delete","faveColor":"#6FB1FC","strength":20}}]};
+            var dataWorkflow = {"nodes":[{"data":{"id":"incomplete","name":"Incomplete","weight":50,"faveColor":"#F0F1A2","faveShape":"triangle"}},{"data":{"id":"waiting_for_payment","name":"Waiting for payment","weight":50,"faveColor":"#99F6F0","faveShape":"rectangle"}},{"data":{"id":"paid","name":"Paid","weight":50,"faveColor":"#29FF29","faveShape":"ellipse"}},{"data":{"id":"cancelled","name":"Cancelled","weight":50,"faveColor":"#F90FFF","faveShape":"rectangle"}},{"data":{"id":"to_delete","name":"To delete","weight":50,"faveColor":"#617FFF","faveShape":"ellipse"}}],"edges":[{"data":{"source":"incomplete","target":"waiting_for_payment","faveColor":"#F0F1A2","strength":20}},{"data":{"source":"incomplete","target":"paid","faveColor":"#F0F1A2","strength":20}},{"data":{"source":"waiting_for_payment","target":"paid","faveColor":"#99F6F0","strength":20}},{"data":{"source":"waiting_for_payment","target":"cancelled","faveColor":"#99F6F0","strength":20}},{"data":{"source":"cancelled","target":"to_delete","faveColor":"#F90FFF","strength":20}}]};
         </script>
     </head>
 

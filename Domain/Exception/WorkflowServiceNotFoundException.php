@@ -1,6 +1,6 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\Exception;
+namespace Gmorel\SpecGenStateWorkflow\Domain\Exception;
 
 /**
  * @author Guillaume MOREL <guillaume.morel@verylastroom.com>

@@ -1,8 +1,8 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain;
+namespace Gmorel\SpecGenStateWorkflow\Domain;
 
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\Exception\WorkflowServiceNotFoundException;
+use Gmorel\SpecGenStateWorkflow\Domain\Exception\WorkflowServiceNotFoundException;
 use Gmorel\StateWorkflowBundle\StateEngine\StateWorkflow;
 
 /**

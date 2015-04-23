@@ -1,6 +1,6 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\App\Command;
+namespace Gmorel\SpecGenStateWorkflow\App\Command;
 
 /**
  * @author Guillaume MOREL <guillaume.morel@verylastroom.com>

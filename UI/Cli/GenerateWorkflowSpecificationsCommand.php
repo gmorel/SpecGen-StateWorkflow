@@ -1,9 +1,9 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\UI\Cli;
+namespace Gmorel\SpecGenStateWorkflow\UI\Cli;
 
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\App\Command\RenderWorkflowSpecificationFromWorkflowServiceCommand;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\App\SpecificationService;
+use Gmorel\SpecGenStateWorkflow\App\Command\RenderWorkflowSpecificationFromWorkflowServiceCommand;
+use Gmorel\SpecGenStateWorkflow\App\SpecificationService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

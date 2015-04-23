@@ -1,12 +1,12 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Infra;
+namespace Gmorel\SpecGenStateWorkflow\Infra;
 
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\SpecificationRepresentationGeneratorInterface;
+use Gmorel\SpecGenStateWorkflow\Domain\SpecificationRepresentationGeneratorInterface;
 use Gmorel\StateWorkflowBundle\StateEngine\StateWorkflow;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\IntrospectedWorkflow;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\UI\Representation\HtmlSpecificationRepresentation;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\UI\Representation\CytoscapeWorkflowRepresentation;
+use Gmorel\SpecGenStateWorkflow\Domain\IntrospectedWorkflow;
+use Gmorel\SpecGenStateWorkflow\UI\Representation\HtmlSpecificationRepresentation;
+use Gmorel\SpecGenStateWorkflow\UI\Representation\CytoscapeWorkflowRepresentation;
 
 
 /**

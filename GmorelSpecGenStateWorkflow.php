@@ -1,6 +1,6 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle;
+namespace Gmorel\SpecGenStateWorkflow;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

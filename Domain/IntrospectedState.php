@@ -1,6 +1,6 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain;
+namespace Gmorel\SpecGenStateWorkflow\Domain;
 
 /**
  * @author Guillaume MOREL <guillaume.morel@verylastroom.com>

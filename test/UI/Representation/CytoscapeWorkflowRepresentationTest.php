@@ -1,15 +1,15 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\Test\SpecificationGeneration\UI\Representation;
+namespace Gmorel\SpecGenStateWorkflow\Test\UI\Representation;
 
 use BookingEngine\Domain\State\Implementation\StateCancelled;
 use BookingEngine\Domain\State\Implementation\StateIncomplete;
 use BookingEngine\Domain\State\Implementation\StatePaid;
 use BookingEngine\Domain\State\Implementation\StateToDelete;
 use BookingEngine\Domain\State\Implementation\StateWaitingPayment;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\IntrospectedWorkflow;
+use Gmorel\SpecGenStateWorkflow\Domain\IntrospectedWorkflow;
 use Gmorel\StateWorkflowBundle\StateEngine\StateWorkflow;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\UI\Representation\CytoscapeWorkflowRepresentation as SUT;
+use Gmorel\SpecGenStateWorkflow\UI\Representation\CytoscapeWorkflowRepresentation as SUT;
 
 /**
  * @author Guillaume MOREL <github.com/gmorel>
@@ -22,7 +22,7 @@ class CytoscapeWorkflowRepresentationTest extends \PHPUnit_Framework_TestCase
         $stateWorkflow = $this->createValidStateWorkflow();
         $introspectedWorkflow = new IntrospectedWorkflow($stateWorkflow);
 
-        $expected = '{"nodes":[{"data":{"id":"incomplete","name":"Incomplet","weight":50,"faveColor":"#6FB1FC","faveShape":"triangle"}},{"data":{"id":"waiting_for_payment","name":"En attente de paiement","weight":50,"faveColor":"#6FB1FC","faveShape":"rectangle"}},{"data":{"id":"paid","name":"Pay\u00e9","weight":50,"faveColor":"#6FB1FC","faveShape":"ellipse"}},{"data":{"id":"cancelled","name":"Annul\u00e9","weight":50,"faveColor":"#6FB1FC","faveShape":"rectangle"}},{"data":{"id":"to_delete","name":"A supprimer","weight":50,"faveColor":"#6FB1FC","faveShape":"ellipse"}}],"edges":[{"data":{"source":"incomplete","target":"waiting_for_payment","faveColor":"#6FB1FC","strength":20}},{"data":{"source":"incomplete","target":"paid","faveColor":"#6FB1FC","strength":20}},{"data":{"source":"waiting_for_payment","target":"paid","faveColor":"#6FB1FC","strength":20}},{"data":{"source":"waiting_for_payment","target":"cancelled","faveColor":"#6FB1FC","strength":20}},{"data":{"source":"cancelled","target":"to_delete","faveColor":"#6FB1FC","strength":20}}]}';
+        $expected = '{"nodes":[{"data":{"id":"incomplete","name":"Incomplete","weight":50,"faveColor":"#F0F1A2","faveShape":"triangle"}},{"data":{"id":"waiting_for_payment","name":"Waiting for payment","weight":50,"faveColor":"#99F6F0","faveShape":"rectangle"}},{"data":{"id":"paid","name":"Paid","weight":50,"faveColor":"#29FF29","faveShape":"ellipse"}},{"data":{"id":"cancelled","name":"Cancelled","weight":50,"faveColor":"#F90FFF","faveShape":"rectangle"}},{"data":{"id":"to_delete","name":"To delete","weight":50,"faveColor":"#617FFF","faveShape":"ellipse"}}],"edges":[{"data":{"source":"incomplete","target":"waiting_for_payment","faveColor":"#F0F1A2","strength":20}},{"data":{"source":"incomplete","target":"paid","faveColor":"#F0F1A2","strength":20}},{"data":{"source":"waiting_for_payment","target":"paid","faveColor":"#99F6F0","strength":20}},{"data":{"source":"waiting_for_payment","target":"cancelled","faveColor":"#99F6F0","strength":20}},{"data":{"source":"cancelled","target":"to_delete","faveColor":"#F90FFF","strength":20}}]}';
 
         // When
         $representation = new SUT($introspectedWorkflow);

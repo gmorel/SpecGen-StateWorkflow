@@ -1,6 +1,6 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain;
+namespace Gmorel\SpecGenStateWorkflow\Domain;
 
 use Gmorel\StateWorkflowBundle\StateEngine\Exception\EmptyWorkflowException;
 use Gmorel\StateWorkflowBundle\StateEngine\Exception\StateNotImplementedException;

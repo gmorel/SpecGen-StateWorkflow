@@ -1,16 +1,16 @@
 <?php
 
-namespace Gmorel\SpecGenStateWorkflowBundle\Test\SpecificationGeneration\Domain;
+namespace Gmorel\SpecGenStateWorkflow\Test\Domain;
 
 use BookingEngine\Domain\State\Implementation\StateCancelled;
 use BookingEngine\Domain\State\Implementation\StateIncomplete;
 use BookingEngine\Domain\State\Implementation\StatePaid;
 use BookingEngine\Domain\State\Implementation\StateToDelete;
 use BookingEngine\Domain\State\Implementation\StateWaitingPayment;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\IntrospectedState;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\IntrospectedTransition;
+use Gmorel\SpecGenStateWorkflow\Domain\IntrospectedState;
+use Gmorel\SpecGenStateWorkflow\Domain\IntrospectedTransition;
 use Gmorel\StateWorkflowBundle\StateEngine\StateWorkflow;
-use Gmorel\SpecGenStateWorkflowBundle\SpecificationGeneration\Domain\IntrospectedWorkflow as SUT;
+use Gmorel\SpecGenStateWorkflow\Domain\IntrospectedWorkflow as SUT;
 
 /**
  * @author Guillaume MOREL <github.com/gmorel>
@@ -111,11 +111,11 @@ class IntrospectedWorkflowTest extends \PHPUnit_Framework_TestCase
     private function createExpectedStates()
     {
         return array(
-            'incomplete' => new IntrospectedState('incomplete', 'Incomplet'),
-            'waiting_for_payment' => new IntrospectedState('waiting_for_payment', 'En attente de paiement'),
-            'paid' => new IntrospectedState('paid', 'Payé'),
-            'cancelled' => new IntrospectedState('cancelled', 'Annulé'),
-            'to_delete' => new IntrospectedState('to_delete', 'A supprimer')
+            'incomplete' => new IntrospectedState('incomplete', 'Incomplete'),
+            'waiting_for_payment' => new IntrospectedState('waiting_for_payment', 'Waiting for payment'),
+            'paid' => new IntrospectedState('paid', 'Paid'),
+            'cancelled' => new IntrospectedState('cancelled', 'Cancelled'),
+            'to_delete' => new IntrospectedState('to_delete', 'To delete')
         );
     }
 }
