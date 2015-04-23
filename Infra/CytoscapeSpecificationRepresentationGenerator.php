@@ -23,7 +23,7 @@ class CytoscapeSpecificationRepresentationGenerator implements SpecificationRepr
     {
         $introspectedWorkflow = new IntrospectedWorkflow($stateWorkflow);
 
-        $templateFilePath = realpath(dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . self::TEMPLATE_FILE_PATH);
+        $templateFilePath = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . self::TEMPLATE_FILE_PATH);
 
         return new HtmlSpecificationRepresentation(
             new CytoscapeWorkflowRepresentation($introspectedWorkflow),
